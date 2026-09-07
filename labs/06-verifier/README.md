@@ -15,7 +15,7 @@ python3 lab.py check 06 --workspace work
 Expected stdout from the first command:
 
 ```text
-fresh evidence gate passed; this is not total proof
+accepted: recent successful result
 ```
 
 Expected check output:

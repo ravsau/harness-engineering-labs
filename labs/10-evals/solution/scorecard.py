@@ -20,7 +20,6 @@ def main():
     args = parser.parse_args()
     result = score(json.loads(args.fixture.read_text(encoding="utf-8")))
     print(json.dumps(result, sort_keys=True))
-    print("deterministic fixture score; no model improvement claim")
     return 0 if result["status"] == "pass" else 1
 
 

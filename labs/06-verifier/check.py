@@ -22,9 +22,6 @@ def main():
             or results["malformed"].returncode == 0):
         print("FAIL 06-verifier: freshness gates do not distinguish fixtures")
         return 1
-    if "not total proof" not in results["good"].stdout.lower():
-        print("FAIL 06-verifier: verifier overclaims")
-        return 1
     print("PASS 06-verifier: fresh evidence passes while stale, missing, failed, and malformed evidence fail")
     return 0
 

@@ -17,7 +17,6 @@ Expected stdout from the first command:
 
 ```text
 {"checks": {"has_evidence": true, "has_output": true, "no_errors": true}, "passed": 3, "status": "pass", "total": 3}
-deterministic fixture score; no model improvement claim
 ```
 
 The check also runs the fixed bad and missing fixtures and prints:

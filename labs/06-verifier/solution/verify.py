@@ -6,10 +6,10 @@ from pathlib import Path
 
 def verify(claim, now, max_age=30):
     if claim.get("status") != "completed" or claim.get("checks_failed") or claim.get("errors"):
-        return False, "fresh evidence gate failed; claim is not total proof"
+        return False, "rejected: no acceptable recent result"
     evidence_items = claim.get("evidence", [])
     if not isinstance(evidence_items, list):
-        return False, "fresh evidence gate failed; claim is not total proof"
+        return False, "rejected: no acceptable recent result"
     for evidence in evidence_items:
         if not isinstance(evidence, dict):
             continue
@@ -20,8 +20,8 @@ def verify(claim, now, max_age=30):
                 and isinstance(exit_code, int) and not isinstance(exit_code, bool)
                 and isinstance(command, str) and command.strip()
                 and now - max_age <= observed <= now and exit_code == 0):
-            return True, "fresh evidence gate passed; this is not total proof"
-    return False, "fresh evidence gate failed; claim is not total proof"
+            return True, "accepted: recent successful result"
+    return False, "rejected: no acceptable recent result"
 
 
 def main():
