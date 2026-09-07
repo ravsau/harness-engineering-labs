@@ -1,0 +1,6 @@
+[
+  {"name": "read_task", "args": {"path": "tasks.json"}},
+  {"name": "delete_everything", "args": {}},
+  {"name": "read_task", "args": {"path": "../escape.txt"}},
+  {"name": "write_task", "args": {"path": "tasks.json"}}
+]
